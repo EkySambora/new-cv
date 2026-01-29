@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eky - Frontend Developer Portfolio</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 2cm;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 210mm;
+        margin: 0 auto;
+        padding: 20px;
+        background: white;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .header .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        opacity: 0.9;
+      }
+
+      .header .contact {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .section {
+        margin: 20px 0;
+        display: block;
+        width: 100%;
+      }
+
+      .section-title {
+        color: #1e40af;
+        font-size: 22px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        display: block;
+        border-bottom: 3px solid #1e40af;
+      }
+
+      .experience-item {
+        background: #f8fafc;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border-left: 4px solid #3b82f6;
+        display: block;
+        width: 100%;
+      }
+
+      .experience-item.current {
+        border-left-color: #059669;
+        background: #f0fdf4;
+      }
+
+      .company-name {
+        font-size: 20px;
+        font-weight: bold;
+        color: #1e40af;
+        margin-bottom: 5px;
+      }
+
+      .job-title {
+        font-size: 16px;
+        color: #059669;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .duration {
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 5px;
+      }
+
+      .location {
+        font-size: 13px;
+        color: #9ca3af;
+        margin-bottom: 10px;
+      }
+
+      .tech-stack {
+        background: #e0f2fe;
+        padding: 8px 12px;
+        border-radius: 6px;
+        margin: 10px 0;
+        font-size: 13px;
+      }
+
+      .tech-stack strong {
+        color: #0284c7;
+      }
+
+      .achievements {
+        margin-top: 10px;
+      }
+
+      .achievements ul {
+        margin-left: 20px;
+        margin-top: 8px;
+      }
+
+      .achievements li {
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .project-highlight {
+        background: #fef3c7;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 10px 0;
+        border-left: 3px solid #f59e0b;
+      }
+
+      .project-highlight h4 {
+        color: #b45309;
+        margin-bottom: 5px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .skill-category {
+        background: white;
+        padding: 12px;
+        border-radius: 6px;
+        border-left: 3px solid #6366f1;
+      }
+
+      .skill-category h4 {
+        color: #4338ca;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .skill-category ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .skill-category li {
+        font-size: 13px;
+        margin-bottom: 4px;
+        color: #4b5563;
+      }
+
+      .skill-category li:before {
+        content: "▪ ";
+        color: #6366f1;
+        font-weight: bold;
+      }
+
+      .timeline {
+        background: #f0f9ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .timeline-item {
+        padding: 8px 0;
+        font-size: 14px;
+        border-left: 3px solid #3b82f6;
+        padding-left: 15px;
+        margin-bottom: 10px;
+      }
+
+      .highlights-box {
+        background: #d1fae5;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .highlights-box ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .highlights-box li:before {
+        content: "✅ ";
+        margin-right: 8px;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #e5e7eb;
+        margin: 25px 0;
+      }
+
+      .footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px solid #e5e7eb;
+        text-align: center;
+        font-style: italic;
+        color: #6b7280;
+        font-size: 13px;
+      }
+
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        body {
+          padding: 8mm;
+          margin: 0;
+          max-width: 100%;
+        }
+
+        .header {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background: linear-gradient(
+            135deg,
+            #1e40af 0%,
+            #059669 100%
+          ) !important;
+          color: white !important;
+          padding: 18px !important;
+          margin-bottom: 12px !important;
+        }
+
+        .section {
+          margin: 12px 0 !important;
+        }
+
+        .section-title {
+          font-size: 20px !important;
+          margin-bottom: 10px !important;
+          padding-bottom: 5px !important;
+        }
+
+        .page-break {
+          page-break-before: always;
+        }
+
+        .experience-item {
+          page-break-inside: avoid;
+          margin-bottom: 12px !important;
+          padding: 12px !important;
+          background: #f8fafc !important;
+          border-left: 4px solid #3b82f6 !important;
+        }
+
+        .experience-item.current {
+          background: #f0fdf4 !important;
+          border-left-color: #059669 !important;
+        }
+
+        .section {
+          page-break-inside: auto;
+          display: block !important;
+        }
+
+        .section-title {
+          color: #1e40af !important;
+        }
+
+        .company-name {
+          font-size: 18px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .job-title {
+          margin-bottom: 3px !important;
+          font-size: 15px !important;
+        }
+
+        .duration,
+        .location {
+          margin-bottom: 3px !important;
+          font-size: 13px !important;
+        }
+
+        .tech-stack {
+          margin: 8px 0 !important;
+          font-size: 13px !important;
+        }
+
+        .achievements {
+          margin: 8px 0 !important;
+        }
+
+        .achievements ul {
+          margin: 5px 0 !important;
+          padding-left: 20px !important;
+        }
+
+        .achievements li {
+          margin-bottom: 3px !important;
+          font-size: 13px !important;
+        }
+
+        .project-highlight {
+          margin: 8px 0 !important;
+        }
+
+        .project-highlight h4 {
+          font-size: 16px !important;
+          margin-bottom: 5px !important;
+        }
+
+        .timeline {
+          page-break-inside: avoid;
+        }
+
+        .highlights-box {
+          page-break-inside: avoid;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: underline;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Eky Zulianto Arif</h1>
+      <div class="title">Frontend Developer / Fullstack Developer</div>
+      <div class="contact">
+        ekysambora@gmail.com | Kota Serang, Banten, Indonesia |
+        <a
+          href="https://github.com/EkySambora"
+          target="_blank"
+          style="color: white; text-decoration: underline"
+          >github.com/EkySambora</a
+        >
+      </div>
+      <div class="contact" style="margin-top: 5px">
+        Specializing in Laravel (Livewire), Payment Gateway (Xendit), Next.js,
+        React, Vue.js, TypeScript, RESTful API
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- Sonar Platform -->
+      <div class="experience-item current">
+        <div class="company-name">Sonar Platform</div>
+        <div class="job-title">Frontend Developer</div>
+        <div class="duration">June 2020 - Present (5 years 8 months)</div>
+        <div class="location">Jakarta, Indonesia | sonarplatform.com</div>
+
+        <div class="tech-stack">
+          <strong>Tech Stack:</strong> Laravel, Next.js, Vue.js, React.js,
+          TypeScript, JavaScript, Bootstrap, Tailwind CSS, jQuery, SCSS, Blade
+        </div>
+
+        <p style="margin: 10px 0">
+          <strong>Overview:</strong> Developing multiple enterprise-level
+          applications for social media analytics platform, handling both
+          fullstack development with Laravel and modern frontend frameworks.
+        </p>
+
+        <div class="project-highlight">
+          <h4>Project 1: Sonar Platform V3 (Fullstack)</h4>
+          <div style="font-size: 13px; margin-top: 5px">
+            <strong>Tech:</strong> Laravel, SCSS, Bootstrap, jQuery, Blade
+            Template, Vue.js, RESTful API |
+            <strong>URL:</strong> app.sonarplatform.com |
+            <strong>Role:</strong> Fullstack Laravel Developer
+          </div>
+        </div>
+
+        <div class="achievements">
+          <strong>Overview:</strong> Original Sonar Platform social media
+          monitoring application
+          <ul>
+            <li>
+              Developed and maintained core application as fullstack developer
+            </li>
+            <li>
+              Built features using Laravel framework with MVC architecture
+            </li>
+            <li>Created responsive UI with Bootstrap and custom SCSS</li>
+            <li>Implemented interactive features with jQuery</li>
+            <li>Developed RESTful APIs for data integration</li>
+            <li>Utilized Blade template engine for server-side rendering</li>
+            <li>Managed database operations and backend logic</li>
+          </ul>
+        </div>
+
+        <div class="project-highlight">
+          <h4>Project 2: DXT360 Admin Panel</h4>
+          <div style="font-size: 13px; margin-top: 5px">
+            <strong>Tech:</strong> Next.js, TypeScript, Tailwind CSS, NextAuth
+            <strong>URL:</strong> dxt360-internal.sonarplatform.com
+          </div>
+        </div>
+
+        <div class="achievements">
+          <ul>
+            <li>
+              Built comprehensive internal administration panel from scratch
+            </li>
+            <li>
+              Implemented 6 major modules: Authentication, Dashboard, User
+              Management, Account Management, Backdate Jobs, Document Policy
+            </li>
+            <li>
+              Created real-time data visualization for Twitter Pro usage metrics
+            </li>
+            <li>
+              Developed multi-role user management (Admin, Insight, CX Team)
+            </li>
+            <li>
+              Built multi-step account creation with subscription controls
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-highlight">
+          <h4>Project 3: DataHub - Data Warehouse</h4>
+          <div style="font-size: 13px; margin-top: 5px">
+            <strong>Tech:</strong> Next.js, JavaScript, Tailwind CSS |
+            <strong>URL:</strong> datahub.sonarplatform.com
+          </div>
+        </div>
+
+        <div class="achievements">
+          <ul>
+            <li>Developed data warehouse handling 35,000+ posts</li>
+            <li>
+              Integrated 5 platforms: TikTok (32M+), Facebook (362M+), YouTube
+              (159M+), Instagram (75M+), Twitter (68M+)
+            </li>
+            <li>Implemented advanced filtering with 17+ country support</li>
+            <li>Built real-time search with multi-dimensional filtering</li>
+            <li>Optimized performance for large datasets</li>
+          </ul>
+        </div>
+
+        <div class="project-highlight">
+          <h4>Project 4: DXT360 - Main Platform</h4>
+          <div style="font-size: 13px; margin-top: 5px">
+            <strong>Tech:</strong> HTML, Tailwind CSS, TypeScript, React.js,
+            Next.js, Redux | <strong>URL:</strong> dxt360.sonarplatform.com
+          </div>
+        </div>
+
+        <div class="achievements">
+          <strong>Key Responsibilities:</strong>
+          <ul>
+            <li>
+              Implemented UX/UI designs to production code using multiple
+              frameworks
+            </li>
+            <li>
+              Created responsive web designs for desktop, tablet, and mobile
+              devices
+            </li>
+            <li>Troubleshot and resolved website issues and coding problems</li>
+            <li>
+              Collaborated with Product and Frontend teams to improve user
+              experience
+            </li>
+            <li>
+              Worked with backend developers to define and integrate API
+              endpoints
+            </li>
+            <li>
+              Successfully integrated multiple frontend technologies in one
+              platform
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tixtune (Event Management & E-Ticketing Platform) -->
+      <div class="experience-item">
+        <div class="company-name">PT. Tixtune Kreasi Indonesia</div>
+        <div class="job-title">Fullstack Developer (Freelance)</div>
+        <div class="duration">January - May 2025 (5 months)</div>
+        <div class="location">Indonesia | tixtune.com</div>
+
+        <div class="tech-stack">
+          <strong>Tech Stack:</strong> Laravel, Livewire, Alpine.js, Blade
+          Template, Tailwind CSS, Xendit Payment Gateway, MySQL database
+        </div>
+
+        <p style="margin: 10px 0">
+          <strong>Project:</strong> Event Management & E-Ticketing Platform -
+          Digital ticketing solution for event organizers with secure payment
+          processing and real-time ticket availability
+        </p>
+
+        <div class="achievements">
+          <strong>Key Achievements:</strong>
+          <ul>
+            <li>
+              Built fullstack event management and e-ticketing platform using
+              Laravel with Livewire
+            </li>
+            <li>
+              Developed event creation system and ticket booking flow for
+              organizers
+            </li>
+            <li>
+              Implemented Xendit payment gateway for secure ticket purchases
+            </li>
+            <li>
+              Created real-time ticket availability updates with Livewire
+              components
+            </li>
+            <li>
+              Built QR code generation system for digital ticket verification
+            </li>
+            <li>
+              Developed organizer dashboard for event management and sales
+              tracking
+            </li>
+            <li>Implemented multi-step booking process with seat selection</li>
+            <li>
+              Created responsive e-ticketing interface with Tailwind CSS for
+              mobile users
+            </li>
+          </ul>
+        </div>
+
+        <div class="achievements">
+          <strong>Key Features:</strong>
+          <ul>
+            <li>Event management system with pricing and schedules</li>
+            <li>E-ticketing platform with QR code tickets</li>
+            <li>Real-time seat/ticket availability</li>
+            <li>Payment integration supporting multiple methods</li>
+            <li>Event discovery with search and filtering</li>
+            <li>Admin dashboard for platform management</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Muzakki Travel (Freelance WordPress) -->
+      <div class="experience-item">
+        <div class="company-name">PT. Muzakki Travel Internasional</div>
+        <div class="job-title">Freelance Web Developer</div>
+        <div class="duration">November 2024 (Freelance Project)</div>
+        <div class="location">
+          Bandung, Jawa Barat, Indonesia | muzakkitravelinternasional.com
+        </div>
+
+        <div class="tech-stack">
+          <strong>Tech Stack:</strong> WordPress, Elementor
+        </div>
+
+        <p style="margin: 10px 0">
+          <strong>Project:</strong> Travel & Umroh Agency Website - Complete
+          digital platform for managing Umroh packages, bookings, and travel
+          information
+        </p>
+
+        <div class="achievements">
+          <strong>Key Achievements:</strong>
+          <ul>
+            <li>
+              Built full-featured travel agency website using WordPress CMS
+            </li>
+            <li>
+              Created package listing system with detailed Umroh travel packages
+              (B2B & Retail)
+            </li>
+            <li>
+              Integrated booking forms with WhatsApp integration (2 channels)
+            </li>
+            <li>
+              Developed photo gallery and testimonials section with Google
+              Reviews (5.0 rating)
+            </li>
+            <li>
+              Implemented responsive design for elderly users (target audience)
+            </li>
+            <li>SEO optimization for better visibility</li>
+            <li>Professional digital platform enabling online inquiries</li>
+          </ul>
+        </div>
+
+        <div class="achievements">
+          <strong>Features Developed:</strong>
+          <ul>
+            <li>Package management system with pricing</li>
+            <li>Booking inquiry forms with direct WhatsApp</li>
+            <li>Photo gallery showcasing pilgrim journeys</li>
+            <li>Contact integration (Phone, WhatsApp, Email, Maps)</li>
+            <li>Mobile-first responsive design</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Gofarm -->
+      <div class="experience-item">
+        <div class="company-name">PT. Gofarm Sinergi Makmur</div>
+        <div class="job-title">Frontend Web Developer (freelance)</div>
+        <div class="duration">May 2020 - November 2020 (7 months)</div>
+        <div class="location">Jakarta Barat, Indonesia | muriafresh.com</div>
+
+        <div class="tech-stack"><strong>Tech Stack:</strong> Nuxt.js</div>
+
+        <div class="achievements">
+          <ul>
+            <li>Built complete website from scratch using Nuxt.js</li>
+            <li>Implemented server-side rendering for optimal performance</li>
+            <li>Created responsive layouts for all devices</li>
+            <li>Integrated with backend APIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Like Butter -->
+      <div class="experience-item">
+        <div class="company-name">Like Butter</div>
+        <div class="job-title">User Interface Engineer (freelance)</div>
+        <div class="duration">June 2020 - September 2020 (4 months)</div>
+        <div class="location">Australia (Remote) | likebutter.com.au</div>
+
+        <div class="tech-stack">
+          <strong>Tech Stack:</strong> Shopify, PHP, TailwindCSS
+        </div>
+
+        <div class="achievements">
+          <ul>
+            <li>Revamped UI using Shopify template with TailwindCSS</li>
+            <li>Implemented modern design system</li>
+            <li>Enhanced user experience across the platform</li>
+            <li>Collaborated with international team remotely</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page-break"></div>
+
+      <!-- Umroh.com -->
+      <div class="experience-item">
+        <div class="company-name">PT. Amanah Umroh Handal</div>
+        <div class="job-title">Frontend Web Developer</div>
+        <div class="duration">May 2019 - June 2020 (1 year 2 months)</div>
+        <div class="location">Greater Jakarta Area, Indonesia | umroh.com</div>
+
+        <div class="tech-stack">
+          <strong>Tech Stack:</strong> JavaScript, jQuery, Vue.js, Nuxt.js,
+          HTML5, CSS3, SCSS
+        </div>
+
+        <div class="achievements">
+          <strong>Key Responsibilities:</strong>
+          <ul>
+            <li>Reviewed and implemented UX/UI designs</li>
+            <li>Created prototypes, mockups, and staging sites</li>
+            <li>Optimized websites for fast loading speed</li>
+            <li>Troubleshot and solved coding problems</li>
+            <li>Built reusable code and libraries</li>
+            <li>Collaborated with designers and back-end developers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DUMET School -->
+      <div class="experience-item">
+        <div class="company-name">DUMET School</div>
+        <div class="job-title">Instructor Web Programming</div>
+        <div class="duration">November 2017 - April 2019 (1 year 6 months)</div>
+        <div class="location">
+          Greater Jakarta Area, Indonesia | dumetschool.com
+        </div>
+
+        <div class="tech-stack">
+          <strong>Teaching Curriculum:</strong> HTML & CSS, Bootstrap 4, PHP &
+          MySQL, Photoshop for Web, OOP PHP, CodeIgniter, Laravel
+        </div>
+
+        <div class="achievements">
+          <ul>
+            <li>Trained numerous students in web programming</li>
+            <li>Developed comprehensive course materials</li>
+            <li>Mentored students on real-world projects</li>
+            <li>Contributed to curriculum development</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Krakatau Engineering -->
+      <div class="experience-item">
+        <div class="company-name">PT. Krakatau Engineering</div>
+        <div class="job-title">Warehouse Supervisor</div>
+        <div class="duration">
+          January 2013 - November 2017 (4 years 11 months)
+        </div>
+        <div class="location">Cilegon, Indonesia | krakataueng.co.id</div>
+
+        <div class="achievements">
+          <ul>
+            <li>Supervised warehouse operations</li>
+            <li>Managed inventory and logistics</li>
+            <li>Coordinated with multiple departments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="section">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Frontend Frameworks</h4>
+          <ul>
+            <li>Next.js</li>
+            <li>Nuxt.js</li>
+            <li>Vue.js</li>
+            <li>React</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Languages</h4>
+          <ul>
+            <li>TypeScript</li>
+            <li>JavaScript (ES6+)</li>
+            <li>HTML5</li>
+            <li>CSS3/SCSS</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Styling & UI</h4>
+          <ul>
+            <li>Tailwind CSS</li>
+            <li>Bootstrap</li>
+            <li>Responsive Design</li>
+            <li>UI/UX Implementation</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Backend Knowledge</h4>
+          <ul>
+            <li>PHP (OOP)</li>
+            <li>CodeIgniter</li>
+            <li>Laravel</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Tools & Others</h4>
+          <ul>
+            <li>Git</li>
+            <li>NextAuth</li>
+            <li>RESTful APIs</li>
+            <li>npm/yarn</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Additional Skills</h4>
+          <ul>
+            <li>Performance Optimization</li>
+            <li>SEO</li>
+            <li>Teaching & Mentoring</li>
+            <li>Agile Workflow</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="section">
+      <h2 class="section-title">Career Highlights</h2>
+
+      <div class="highlights-box">
+        <ul>
+          <li>
+            <strong>Long Tenure:</strong> 5+ years at current company (Sonar
+            Platform since June 2020)
+          </li>
+          <li>
+            <strong>Total Experience:</strong> 8+ years in tech industry (since
+            2017)
+          </li>
+          <li>
+            <strong>Enterprise Applications:</strong> Built 4 enterprise-level
+            apps (Sonar Main-Fullstack, Admin Panel, DataHub, DXT360 Platform)
+            handling 35K+ posts
+          </li>
+          <li>
+            <strong>Multi-Platform Integration:</strong> Integrated 5 social
+            media platforms
+          </li>
+          <li>
+            <strong>Active Freelancer:</strong> Recent projects - Laravel +
+            Livewire with Xendit payment gateway (Jan-May 2025, 5 months) and
+            WordPress (Nov 2024)
+          </li>
+          <li>
+            <strong>Payment Integration:</strong> Xendit payment gateway
+            implementation expertise
+          </li>
+          <li>
+            <strong>Modern Tech Stack:</strong> Multi-framework expertise
+            (Laravel, Livewire, Alpine.js, WordPress, Next.js, Vue.js, React.js,
+            TypeScript)
+          </li>
+          <li>
+            <strong>Teaching Experience:</strong> 1.5 years training students in
+            web development
+          </li>
+          <li>
+            <strong>Diverse Projects:</strong> E-commerce, Travel & Umroh,
+            Agriculture, Social Media Analytics
+          </li>
+          <li>
+            <strong>International Experience:</strong> Worked remotely with
+            Australian team
+          </li>
+          <li>
+            <strong>Full Stack Knowledge:</strong> Backend (Laravel), Frontend
+            (Modern Frameworks), CMS (WordPress)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="section">
+      <h2 class="section-title">Professional Timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>January - May 2025:</strong> Fullstack Developer - PT. Tixtune
+          Kreasi Indonesia (Laravel, Livewire)
+        </div>
+        <div class="timeline-item">
+          <strong>November 2024:</strong> Freelance Web Developer - PT. Muzakki
+          Travel Internasional (WordPress)
+        </div>
+        <div class="timeline-item">
+          <strong>June 2020 - Present:</strong> Frontend/Fullstack Developer at
+          Sonar Platform (5 years 8 months)
+        </div>
+        <div class="timeline-item">
+          <strong>May-Nov 2020:</strong> Frontend Web Developer at PT. Gofarm (7
+          months)
+        </div>
+        <div class="timeline-item">
+          <strong>June-Sept 2020:</strong> User Interface Engineer at Like
+          Butter, Australia (4 months)
+        </div>
+        <div class="timeline-item">
+          <strong>May 2019 - June 2020:</strong> Frontend Developer at Umroh.com
+          (1 year 2 months)
+        </div>
+        <div class="timeline-item">
+          <strong>Nov 2017 - Apr 2019:</strong> Web Programming Instructor at
+          DUMET School (1 year 6 months)
+        </div>
+        <div class="timeline-item">
+          <strong>2013 - 2017:</strong> Warehouse Supervisor at PT. Krakatau
+          Engineering
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        This portfolio demonstrates 8+ years of experience in tech industry
+        (since 2017) with 5+ years at current company, focusing on fullstack and
+        frontend development, performance optimization, and user experience.
+      </p>
+      <p style="margin-top: 10px">
+        <strong>GitHub:</strong>
+        <a
+          href="https://github.com/EkySambora"
+          target="_blank"
+          style="color: #6366f1"
+          >github.com/EkySambora</a
+        >
+        <strong>Location:</strong> Serang, Banten, Indonesia |
+      </p>
+      <!-- <p style="margin-top: 10px">
+        <strong>Available for:</strong> Full-time | Contract | Consulting |
+        Remote/On-site
+      </p> -->
+    </div>
+  </body>
+</html>
